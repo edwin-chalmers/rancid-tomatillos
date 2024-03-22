@@ -1,0 +1,10 @@
+.card {
+    box-sizing: border-box;
+    /* padding: 10px; */
+    padding: 0;
+  }
+
+figure {
+  max-width: fit-content;
+  max-height: fit-content;
+}
