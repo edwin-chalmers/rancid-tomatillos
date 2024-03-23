@@ -1,21 +1,36 @@
 import './TopMovie.css'
 
-function TopMovie({movies}) {
-    const moviesSorted = movies.toSorted((a, b) => a.average_rating - b.average_rating)
-    const i = moviesSorted.length - 1
-    const movie = moviesSorted[i]
+function TopMovie({ movies, topDescription }) {
+    // console.log('TopMovie - fetchMovieInfo', fetchMovieInfo(movie))
+    // console.log('TopMovie - movie', movie)
+    // console.log('TopMovie - topDescription', topDescription)
+
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', options);
+    }
+
+    function formatGenre(genres) { 
+        // if (!genres) {
+        //     return
+        // }
+        return genres.join(" - ")
+    }
 
     return (
         <div className='overlay'>
-        <figure className='top-movie'>
-            <div className='top-movie-info'>
-                <h2>{movie.title}</h2>
-                <p>
-Blubblefrocks squiggleplix glipperwham galumphed through the wozzlewump, flibberdoodle fizzleplunking in the zonklesnoot, while zigglypuffs danced atop the frizzlefrazzle. Grobberdank squiggleplix flibberwocked bizzlejinx into the bizzleflomp, creating a cacophony of zibberzabber and zobblegloop that echoed through the zizzletwixt. Floobledorf zanglefizz bizzlemoop fizzleflorp, twiddling wizzlewump trizzleplunk zibberjinx into the glopplesnoot with a zappledizzle twinkleplunk.</p>
-            </div>
-           
-                <img className='top-movie-img' src={movie.backdrop_path} alt='' width='100%'/>
-        </figure>
+            <figure className='top-movie'>
+                <img className="top-movie-poster"src={topDescription.poster_path}></img>
+                <div className='top-movie-info'>
+                    <h1>{topDescription.title}</h1>
+                    <h2>{topDescription.tagline}</h2>
+                    <p>{topDescription.overview}</p>
+                    <p>{formatDate(topDescription.release_date)}</p>
+                    {topDescription.genres && (<p>{formatGenre(topDescription.genres)}</p>)}
+                </div>
+            </figure>
+            <img className='top-movie-img' src={topDescription.backdrop_path} alt='' width='100%'/>
         </div>
     )
 }

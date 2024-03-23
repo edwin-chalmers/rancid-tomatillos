@@ -1,34 +1,47 @@
 .top-movie-container {
     max-width: 100%;
-    position: relative;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: -5px;
+}
+
+.top-movie-poster {
+    width: 300px; 
+    margin-right: 20px; 
+    z-index: 1;
 }
 
 .top-movie {
-    margin: 0;
+    position: absolute;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
     color: rgba(255, 255, 255, 0.857);
 }
 
 .top-movie-img {
     position: relative;
+    z-index: 0;
     box-shadow: inset 0 0 100px rgb(15, 15, 15) !important;
-    /* filter: brightness(60%); */
+    filter: brightness(30%);
 }
 
 .top-movie-info {
+    text-align: left;
     z-index: 1;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 50%;
+    width: 600px;
     max-height: 100%;
+    
 }
 
 .overlay {
     z-index: 3;
-    position: relative;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* background: linear-gradient(to right, rgb(255, 27, 27), rgba(0, 0, 0, 0.229)); */
 }
 
