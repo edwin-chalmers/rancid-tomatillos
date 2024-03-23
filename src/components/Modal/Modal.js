@@ -5,7 +5,7 @@ function Modal({ movie }) {
 
     return (
         <dialog>
-            <h2>{movie.title}</h2>
+            {/* <h2>{movie.title}</h2> */}
         </dialog>
     )
 }

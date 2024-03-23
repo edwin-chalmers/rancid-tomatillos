@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 
 function Movies({ movies, fetchSelectedMovie, setMovie }) {
 
-    const moviesCard = movies.movies.map(movie => {
+    const moviesCard = movies.map(movie => {
         return (
             <Card
                 id={movie.id}

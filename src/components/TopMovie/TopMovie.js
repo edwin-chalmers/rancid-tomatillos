@@ -1,7 +1,7 @@
 import './TopMovie.css'
 
 function TopMovie({movies}) {
-    const moviesSorted = movies.movies.toSorted((a, b) => a.average_rating - b.average_rating)
+    const moviesSorted = movies.toSorted((a, b) => a.average_rating - b.average_rating)
     const i = moviesSorted.length - 1
     const movie = moviesSorted[i]
 
