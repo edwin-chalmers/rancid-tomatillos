@@ -8,19 +8,22 @@ import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls';
 
 function App() {
-  const [movies, setMovies] = useState(movieData);
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   fetchData('movies')
-  //     .then(data => setMovies(data))
-  //     .catch(error => {
-  //       setError('Oops! Something broke.')
-  //       console.log(error.message)
-  //     })
-  // },[])
+  useEffect(() => {
+    fetchData('movies')
+      .then(data => {
+        console.log('useEffect', data);
+        setMovies(data); // Now data is defined, and this will work
+      })
+      .catch(error => {
+        setError('Oops! Something broke.')
+        console.log(error.message);
+      });
+}, []);
 
-  // console.log('movies',movies)
+  console.log('movies', movies)
 
   function fetchSelectedMovie(movieId) {
     console.log(`${movieId}`)
@@ -31,10 +34,16 @@ function App() {
     <main className="App">
       <nav className="Nav-bar"></nav>
       <Modal fetchSelectedMovie={fetchSelectedMovie}/>
-      <TopMovie className="hidden" movies={movies}/>
-      <Movies className="hidden" movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>
+      {movies.movies.length > 0 ? (
+        <>
+          <TopMovie movies={movies}/>
+          <Movies movies={movies} displaySelectedMovie={displaySelectedMovie}/>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
     </main>
   );
 }
 
-export default App;
+export default App
