@@ -2,7 +2,7 @@
 import './Movies.css'
 import Card from '../Card/Card'
 
-function Movies({ movies, displaySelectedMovie }) {
+function Movies({ movies, fetchSelectedMovie, setMovie }) {
 
     const moviesCard = movies.movies.map(movie => {
         return (
@@ -11,7 +11,8 @@ function Movies({ movies, displaySelectedMovie }) {
                 title={movie.title}
                 image={movie.poster_path}
                 key={movie.id}
-                displaySelectedMovie={displaySelectedMovie}
+                fetchSelectedMovie={fetchSelectedMovie}
+                setMovie={setMovie}
             />
         )
     })
