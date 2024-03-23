@@ -12,16 +12,17 @@ function App() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    console.log("test")
     fetchData('movies')
       .then(data => {
-        console.log('useEffect', data);
-        setMovies(data); // Now data is defined, and this will work
+        console.log('useEffect', data.movies);
+        setMovies(data.movies); // Now data is defined, and this will work
       })
       .catch(error => {
         setError('Oops! Something broke.')
         console.log(error.message);
       });
-}, []);
+  }, []);
 
   console.log('movies', movies)
 
@@ -33,11 +34,11 @@ function App() {
   return (
     <main className="App">
       <nav className="Nav-bar"></nav>
-      <Modal fetchSelectedMovie={fetchSelectedMovie}/>
-      {movies.movies.length > 0 ? (
+      {movies.length > 0 ? (
         <>
-          <TopMovie movies={movies}/>
-          <Movies movies={movies} displaySelectedMovie={displaySelectedMovie}/>
+        <Modal />
+        <TopMovie movies={movies}/>
+        <Movies movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>
         </>
       ) : (
         <div>Loading...</div>
