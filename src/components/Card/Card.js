@@ -1,8 +1,11 @@
 import './Card.css'
 
-function Card({title, image, id, displaySelectedMovie}) {
+function Card({title, image, id, fetchSelectedMovie}) {
+
+    
+
     return (
-        <figure className='card' onClick={() => displaySelectedMovie(title)}>
+        <figure className='card' onClick={() => fetchSelectedMovie(id)}>
             <img className="poster" id={id} src={image} alt="" height="250px" width="200px"/>
         </figure>
     )
