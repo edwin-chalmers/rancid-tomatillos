@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  background-color: rgb(13, 13, 13);
+}
+
+.Nav-bar {
+  min-height: 5vh;
+  border: 2px solid black;
+}
+
+.hidden {
+  display: none !important;
+}
