@@ -1,34 +1,34 @@
-import './App.css';
-import movieData from '../../movieData';
+import './App.css'
+import movieData from '../../movieData'
 import Movies from '../Movies/Movies'
-import TopMovie from '../TopMovie/TopMovie';
-import Modal from '../Modal/Modal';
+import TopMovie from '../TopMovie/TopMovie'
+import Modal from '../Modal/Modal'
 import { setMovie } from '../Modal/Modal'
 import { useState, useEffect } from 'react'
-import { fetchData } from '../../apiCalls';
+import { fetchData } from '../../apiCalls'
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [topDescription, setTopDescription] = useState([]);
-  const [error, setError] = useState('');
+  const [movies, setMovies] = useState([])
+  const [topDescription, setTopDescription] = useState([])
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetchData('movies')
       .then(data => {
-        const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating);
-        const topMovie = sortedMovies[0];
-        setMovies(data.movies); // Use the unsorted movies data to set state
+        const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating)
+        const topMovie = sortedMovies[0]
+        setMovies(data.movies) // Use the unsorted movies data to set state
         if (topMovie) {
-          return fetchData(`movies/${topMovie.id}`);
+          return fetchData(`movies/${topMovie.id}`)
         }
-        throw new Error('No top movie found');
+        throw new Error('No top movie found')
       })
       .then(topMovieDescription => {
         setTopDescription(topMovieDescription.movie);
       })
       .catch(error => {
-        setError('Oops! Something broke.');
-        console.log(error.message);
+        setError('Oops! Something broke.')
+        console.log(error.message)
       });
   }, []);
 
@@ -40,12 +40,6 @@ function App() {
     console.log(`Movie Title - ${movieTitle}`)
     return movieId
   }
-
-  function getTopMovie() {
-    return movies.sort((a, b) => b.average_rating - a.average_rating)[0];
-  }
-
-  // console.log('topMovie.id', getTopMovie())
 
   return (
     <main className="App">
