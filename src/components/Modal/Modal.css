@@ -50,10 +50,14 @@ dialog button:hover {
 .movie-details {
     display: block;
     max-width: 50%;
+    min-height: 60%;
     padding: 50px;
-    /* float: inline-end;
-    margin-right: 10%; */
     margin-left: 10%;
+}
+
+.overview {
+    padding-bottom: 10%;
+    padding-top: 3%;
 }
 
 .deep-details {

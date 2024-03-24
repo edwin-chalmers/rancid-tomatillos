@@ -23,7 +23,7 @@ function Modal({ movie, handleClose}) {
             <div className='dialog-contents'>
                 <div className='movie-details'>
                     <h1>{movie.title}</h1>
-                    <p>{movie.overview}</p>
+                    <p className='overview'>{movie.overview}</p>
                     <div className='deep-details'>
                         {/* change to sematic dl */}
                         <div>
