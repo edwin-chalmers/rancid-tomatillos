@@ -28,15 +28,15 @@ function Modal({ movie, handleClose}) {
                         {/* change to sematic dl */}
                         <div>
                             <p className='details-title'>Rating:</p>
-                            <p>{movie.average_rating}/10</p>
+                            <p className='details-data'>{movie.average_rating}/10</p>
                         </div>
                         <div>
                             <p className='details-title'>Release Date:</p>
-                            <p>{movie.release_date}</p>
+                            <p className='details-data'>{movie.release_date}</p>
                         </div>
                         <div>
                             <p className='details-title'>Genre:</p>
-                            <p>{movie.genres}</p>
+                            <p className='details-data'>{movie.genres}</p>
                         </div>
                     </div>
                 </div>

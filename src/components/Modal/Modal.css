@@ -3,7 +3,7 @@
 dialog {
     padding: 0;
     display: block;
-    color: rgb(255, 255, 255, .9);
+    color: rgb(255, 255, 255, .9) !important;
     border: none;
 }
 
@@ -49,7 +49,7 @@ dialog button:hover {
 
 .movie-details {
     display: block;
-    max-width: 40%;
+    max-width: 50%;
     padding: 50px;
     /* float: inline-end;
     margin-right: 10%; */
@@ -75,4 +75,13 @@ dialog button:hover {
 
 .deep-details p {
     margin: 0;
+}
+
+.details-title {
+    color: rgba(255, 255, 255, 0.492);
+    padding-right: 3px;
+}
+
+.details-data {
+    font-weight: 600;
 }
