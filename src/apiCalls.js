@@ -7,7 +7,6 @@ function fetchData(endpoint) {
         return response.json()
     })
     .then(data => {
-        console.log('apiCalls',data)
         return data
     })
     .catch(error => {
@@ -16,4 +15,20 @@ function fetchData(endpoint) {
     });
 }
 
-export { fetchData } 
+function fetchSingleMovie(endpoint) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${endpoint}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Oopsie poopsie')
+        }
+        return response.json()
+    })
+    .then(data => {
+        return data
+    })
+    .catch(error => {
+        throw error;
+    })
+}
+
+export { fetchData, fetchSingleMovie } 

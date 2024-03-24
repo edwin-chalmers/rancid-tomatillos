@@ -1,16 +1,18 @@
 import './App.css'
-import movieData from '../../movieData'
+// import movieData from '../../movieData'
 import Movies from '../Movies/Movies'
 import TopMovie from '../TopMovie/TopMovie'
 import Modal from '../Modal/Modal'
-import { setMovie } from '../Modal/Modal'
-import { useState, useEffect } from 'react'
-import { fetchData } from '../../apiCalls'
+import { useState, useEffect} from 'react'
+import { fetchData, fetchSingleMovie } from '../../apiCalls'
 
 function App() {
   const [movies, setMovies] = useState([])
   const [topDescription, setTopDescription] = useState([])
   const [error, setError] = useState('')
+  const [singleMovieId, setSingleMovieId] = useState(0)
+  const [singleMovie, setSingleMovie] = useState({})
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     fetchData('movies')
@@ -32,13 +34,23 @@ function App() {
       });
   }, []);
 
-  console.log('movies', movies)
-  console.log('description', topDescription)
+  function fetchSelectedMovie(movieId) {
+    fetchSingleMovie(movieId)
+    .then(data => {
+      const targetMovie = data.movie
+      setSingleMovie(targetMovie)
+    })
+  }
 
-  function fetchSelectedMovie(movieId, movieTitle) {
-    console.log(`Movie ID - ${movieId}`)
-    console.log(`Movie Title - ${movieTitle}`)
-    return movieId
+  function handleOpen(movieId) {
+    setSingleMovieId(movieId)
+    fetchSelectedMovie(movieId)
+    setOpen(true)
+  }
+
+  function handleClose() {
+    setSingleMovieId(0)
+    setOpen(false)
   }
 
   return (
@@ -46,9 +58,9 @@ function App() {
       <nav className="Nav-bar"></nav>
       {movies.length > 0 ? (
         <>
-        <Modal />
-        <TopMovie movies={movies} topDescription={topDescription}/>
-        <Movies movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>
+        {singleMovieId !== 0 && <Modal handleClose={handleClose} open={open} movie={singleMovie}/>}
+        {singleMovieId === 0 && <TopMovie movies={movies} topDescription={topDescription} />}
+        {singleMovieId === 0 && <Movies movies={movies} handleOpen={handleOpen}/>}
         </>
       ) : (
         <div>Loading...</div>

@@ -1,11 +1,13 @@
-// import { useState } from 'react'
+import './Modal.css'
 
-function Modal({ movie }) {
-//    const [movie, setMovie] = useState()
+function Modal({ movie, handleOpen, handleClose, open }) {
 
+    console.log('target Movie', movie)
     return (
         <dialog>
-            {/* <h2>{movie.title}</h2> */}
+            <h2 className='modal-heading'>{movie.title}</h2>
+            <p>{}</p>
+            <button onClick={handleClose}>X</button>
         </dialog>
     )
 }
