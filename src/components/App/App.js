@@ -32,24 +32,22 @@ function App() {
       });
   }, []);
 
-  console.log('movies', movies)
-  console.log('description', topDescription)
+  // console.log('movies', movies)
+  // console.log('description', topDescription)
 
-  function fetchSelectedMovie(movieId, movieTitle) {
-    console.log(`Movie ID - ${movieId}`)
-    console.log(`Movie Title - ${movieTitle}`)
-    console.log(typeof(movieId))
+  function fetchSelectedMovie(movieId) {
+    // console.log(`Movie ID - ${movieId}`)
+    // console.log(`Movie Title - ${movieTitle}`)
     setSingleMovieId(movieId)
     return movieId
   }
-
 
   return (
     <main className="App">
       <nav className="Nav-bar"></nav>
       {movies.length > 0 ? (
         <>
-        {singleMovieId !== 0 && <Modal movies={movies} singleMovieId={singleMovieId}/>}
+        {singleMovieId !== 0 && <Modal movies={movies} id={singleMovieId}/>}
         <TopMovie movies={movies} topDescription={topDescription} />
         <Movies movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>
         </>

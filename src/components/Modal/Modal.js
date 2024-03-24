@@ -1,18 +1,15 @@
 import './Modal.css'
 
 function Modal({id, movies}) {
-
+console.log('singleMovieId inside Modal', id)
     const targetMovie = movies.find(movie => {
-        console.log('movie find', movie)
         return movie.id === id
     })
 
-    console.log('modal target movie', targetMovie)
-    //targetMovie === undefined
-    //console.log inside targetMovie not logging
+    console.log('target Movie', targetMovie)
     return (
         <dialog>
-            <h2>{targetMovie}</h2>
+            <h2>{targetMovie.title}</h2>
         </dialog>
     )
 }
