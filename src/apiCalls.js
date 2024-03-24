@@ -7,7 +7,6 @@ function fetchData(endpoint) {
         return response.json()
     })
     .then(data => {
-        // console.log('apiCalls',data)
         return data
     })
     .catch(error => {
@@ -25,7 +24,6 @@ function fetchSingleMovie(endpoint) {
         return response.json()
     })
     .then(data => {
-        console.log('single movie api', data)
         return data
     })
     .catch(error => {
