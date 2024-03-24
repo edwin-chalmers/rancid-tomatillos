@@ -38,7 +38,6 @@ function App() {
     fetchSingleMovie(movieId)
     .then(data => {
       const targetMovie = data.movie
-      // setSingleMovieId(movieId)
       setSingleMovie(targetMovie)
     })
   }
@@ -48,9 +47,6 @@ function App() {
     fetchSelectedMovie(movieId)
     setOpen(true)
   }
-
-  console.log('open?', open)
-  console.log('')
 
   function handleClose() {
     setSingleMovieId(0)
