@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(13, 13, 13);
+  
 }
 
 .Nav-bar {
@@ -8,6 +9,48 @@
   border: 2px solid black;
 }
 
-.hidden {
-  display: none !important;
+.rancid-tomatillo-logo {
+  width: 200px;
+  margin-left: 50px;
+}
+
+.error-505 {
+  position: fixed;
+  background-color: rgb(13, 13, 13);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  color: white;
+  font-weight: 900;
+}
+
+.error-505 h1{
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.error-505 p {
+  padding: 0;
+  font-weight: 400 !important;
+  text-align: start;
+  margin: 10px;
+}
+
+.error-505 ul {
+  padding: 0 0 10px 0;
+  text-align: start;
+  list-style: none;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.error-505 li {
+  margin-top: 10px;
 }
