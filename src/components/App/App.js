@@ -5,6 +5,8 @@ import TopMovie from '../TopMovie/TopMovie'
 import Modal from '../Modal/Modal'
 import { useState, useEffect} from 'react'
 import { fetchData, fetchSingleMovie } from '../../apiCalls'
+import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
+
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -55,15 +57,28 @@ function App() {
 
   return (
     <main className="App">
+      {!movies.length && (
+        <div className="error-505">
+          <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo" />
+          <h1>There was a glitch in the matrix..</h1>
+          <div className='error-message'>
+            <p>The website isn't working properly. We now know about this issue and are working to fix it.</p>
+            <p>In the meantime, here is what you can do:</p>
+            <p>&nbsp;</p>
+            <ul>
+              <li><b>Refresh the page</b>(Sometimes this helps)</li>
+              <li><b>Try again</b> in 30 minutes</li>
+            </ul>
+          </div>
+        </div>
+      )}
       <nav className="Nav-bar"></nav>
-      {movies.length > 0 ? (
+      {movies.length && (
         <>
         {singleMovieId !== 0 && <Modal handleClose={handleClose} open={open} movie={singleMovie}/>}
         {singleMovieId === 0 && <TopMovie movies={movies} topDescription={topDescription} />}
         {singleMovieId === 0 && <Movies movies={movies} handleOpen={handleOpen}/>}
         </>
-      ) : (
-        <div>Loading...</div>
       )}
     </main>
   );
