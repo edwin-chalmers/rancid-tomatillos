@@ -48,8 +48,8 @@ function App() {
       {movies.length > 0 ? (
         <>
         {singleMovieId !== 0 && <Modal movies={movies} id={singleMovieId}/>}
-        <TopMovie movies={movies} topDescription={topDescription} />
-        <Movies movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>
+        {singleMovieId === 0 && <TopMovie movies={movies} topDescription={topDescription} />}
+        {singleMovieId === 0 && <Movies movies={movies} fetchSelectedMovie={fetchSelectedMovie}/>}
         </>
       ) : (
         <div>Loading...</div>
