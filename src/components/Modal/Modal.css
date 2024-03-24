@@ -1,5 +1,40 @@
 
 
 dialog {
+    padding: 0;
     display: block;
+    color: white;
+    border: none;
+}
+
+dialog img {
+    margin: 0;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0 250px 20px black inset;
+}
+
+.background-overlay {
+    z-index: 0;
+    filter: brightness(50%);
+}
+
+.dialog-contents {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    position: absolute;
+}
+
+dialog button {
+    width: 80px;
+    height: 40px;
+    filter: brightness(142%);
+}
+
+dialog h2 {
+    margin-top: -1;
 }
