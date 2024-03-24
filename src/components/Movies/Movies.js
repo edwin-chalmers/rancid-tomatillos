@@ -2,7 +2,7 @@
 import './Movies.css'
 import Card from '../Card/Card'
 
-function Movies({ movies, fetchSelectedMovie, setMovie }) {
+function Movies({ movies, fetchSelectedMovie, setMovie}) {
 
     const moviesCard = movies.map(movie => {
         return (
