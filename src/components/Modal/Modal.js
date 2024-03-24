@@ -1,15 +1,12 @@
 import './Modal.css'
 
-function Modal({id, movies}) {
-console.log('singleMovieId inside Modal', id)
-    const targetMovie = movies.find(movie => {
-        return movie.id === id
-    })
+function Modal({ movie }) {
 
-    console.log('target Movie', targetMovie)
+    console.log('target Movie', movie)
     return (
         <dialog>
-            <h2>{targetMovie.title}</h2>
+            <h2 className='modal-heading'>{movie.title}</h2>
+            <p>{}</p>
         </dialog>
     )
 }
