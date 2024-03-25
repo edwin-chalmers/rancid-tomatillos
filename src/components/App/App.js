@@ -75,9 +75,10 @@ function App() {
       <nav className="Nav-bar"></nav>
       {movies.length && (
         <>
-        {singleMovieId !== 0 && <Modal handleClose={handleClose} open={open} movie={singleMovie}/>}
-        {singleMovieId === 0 && <TopMovie movies={movies} topDescription={topDescription} />}
-        {singleMovieId === 0 && <Movies movies={movies} handleOpen={handleOpen}/>}
+        {singleMovieId !== 0 
+          ? <Modal handleClose={handleClose} open={open} movie={singleMovie}/>
+          : (<><TopMovie movies={movies} topDescription={topDescription}/>
+          <Movies movies={movies} handleOpen={handleOpen}/></>)}
         </>
       )}
     </main>
