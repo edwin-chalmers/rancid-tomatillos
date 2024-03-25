@@ -1,13 +1,6 @@
 import './Modal.css'
 
-function Modal({ movie, handleClose}) {
-
-    console.log('target Movie', movie)
-    console.log('movie title', movie.title)
-
-    const releaseDate = movie.release_date
-    console.log('release date', releaseDate)
-    // movie.release_date.replaceAll('-', ' ').split(' ').splice(0, 1)
+function Modal({ movie, handleClose, formatDate, formatGenre}) {
 
     const backdrop = movie.backdrop_path
     const figBackground = {
@@ -16,7 +9,6 @@ function Modal({ movie, handleClose}) {
 
     return (
         <dialog>
-            {/* <figure style={figBackground}> */}
             <div className='background-overlay'>
                 <img style={figBackground} alt=''></img>
             </div>
@@ -32,19 +24,15 @@ function Modal({ movie, handleClose}) {
                         </div>
                         <div>
                             <p className='details-title'>Release Date:</p>
-                            <p className='details-data'>{movie.release_date}</p>
+                            {movie.release_date && (<p className='details-data'>{formatDate(movie.release_date)}</p>)}
                         </div>
                         <div>
                             <p className='details-title'>Genre:</p>
-                            <p className='details-data'>{movie.genres}</p>
+                            {movie.genres && (<p className='details-data'>{formatGenre(movie.genres)}</p>)}
                         </div>
                     </div>
                 </div>
                 <button onClick={handleClose}>⃪ Back to home</button>
-            </div>
-            {/* </figure> */}
-            <div>
-              
             </div>
         </dialog>
     )

@@ -55,6 +55,16 @@ function App() {
     setOpen(false)
   }
 
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+  }
+
+function formatGenre(genres) { 
+    return genres.join(" - ")
+  }
+
   return (
     <main className="App">
       {!movies.length && (
@@ -76,8 +86,8 @@ function App() {
       {movies.length && (
         <>
           {singleMovieId !== 0 
-            ? <Modal handleClose={handleClose} open={open} movie={singleMovie}/>
-            : (<><TopMovie movies={movies} topDescription={topDescription}/>
+            ? <Modal handleClose={handleClose} open={open} movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>
+            : (<><TopMovie movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre}/>
               <Movies movies={movies} handleOpen={handleOpen}/></>)}
         </>
       )}

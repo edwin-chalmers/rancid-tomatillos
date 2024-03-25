@@ -6,7 +6,7 @@ function Card({title, image, id, handleOpen}) {
         <>
             {/* {movieModal} */}
             <figure className='card' onClick={() => handleOpen(id)}>
-                <img className="poster" id={id} src={image} alt="" height="250px" width="200px" />
+                <img className="poster" id={id} src={image} alt={`${title} poster`} height="250px" width="200px" />
             </figure>
         </>
     )
