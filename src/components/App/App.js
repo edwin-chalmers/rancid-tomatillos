@@ -25,7 +25,8 @@ function App() {
         if (topMovie) {
           return fetchData(`movies/${topMovie.id}`)
         }
-        throw new Error('No top movie found')
+        // throw new Error('No top movie found')
+        setError("Can't fetch the movie :(")
       })
       .then(topMovieDescription => {
         setTopDescription(topMovieDescription.movie);
@@ -39,8 +40,7 @@ function App() {
   function fetchSelectedMovie(movieId) {
     fetchSingleMovie(movieId)
     .then(data => {
-      const targetMovie = data.movie
-      setSingleMovie(targetMovie)
+      setSingleMovie(data.movie)
     })
   }
 
@@ -62,7 +62,7 @@ function App() {
           <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo" />
           <h1>There was a glitch in the matrix..</h1>
           <div className='error-message'>
-            <p>The website isn't working properly. We now know about this issue and are working to fix it.</p>
+            <p>{error}. We now know about this issue and are working to fix it.</p>
             <p>In the meantime, here is what you can do:</p>
             <p>&nbsp;</p>
             <ul>
@@ -75,10 +75,10 @@ function App() {
       <nav className="Nav-bar"></nav>
       {movies.length && (
         <>
-        {singleMovieId !== 0 
-          ? <Modal handleClose={handleClose} open={open} movie={singleMovie}/>
-          : (<><TopMovie movies={movies} topDescription={topDescription}/>
-          <Movies movies={movies} handleOpen={handleOpen}/></>)}
+          {singleMovieId !== 0 
+            ? <Modal handleClose={handleClose} open={open} movie={singleMovie}/>
+            : (<><TopMovie movies={movies} topDescription={topDescription}/>
+              <Movies movies={movies} handleOpen={handleOpen}/></>)}
         </>
       )}
     </main>
