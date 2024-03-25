@@ -1,27 +1,21 @@
 import './TopMovie.css'
 
-function TopMovie({ movies, topDescription }) {
-    // console.log('TopMovie - fetchMovieInfo', fetchMovieInfo(movie))
-    // console.log('TopMovie - movie', movie)
-    // console.log('TopMovie - topDescription', topDescription)
+function TopMovie({ movies, topDescription, formatDate, formatGenre, }) {
 
-    function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'short', day: 'numeric' };
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', options);
-    }
+    // function formatDate(dateString) {
+    //     const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    //     const date = new Date(dateString);
+    //     return date.toLocaleDateString('en-US', options);
+    // }
 
-    function formatGenre(genres) { 
-        // if (!genres) {
-        //     return
-        // }
-        return genres.join(" - ")
-    }
+    // function formatGenre(genres) { 
+    //     return genres.join(" - ")
+    // }
 
     return (
         <div className='overlay'>
             <figure className='top-movie'>
-                <img className="top-movie-poster"src={topDescription.poster_path}></img>
+                <img className="top-movie-poster"src={topDescription.poster_path} alt={`${topDescription.title} poster`}></img>
                 <div className='top-movie-info'>
                     <h1>{topDescription.title}</h1>
                     <h2>{topDescription.tagline}</h2>
@@ -30,7 +24,7 @@ function TopMovie({ movies, topDescription }) {
                     {topDescription.genres && (<p>{formatGenre(topDescription.genres)}</p>)}
                 </div>
             </figure>
-            <img className='top-movie-img' src={topDescription.backdrop_path} alt='' width='100%'/>
+            <img className='top-movie-img' src={topDescription.backdrop_path} alt={`${topDescription.title} backdrop`} width='100%'/>
         </div>
     )
 }
