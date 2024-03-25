@@ -1,5 +1,5 @@
 function fetchData(endpoint) {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${endpoint}`)
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v23/${endpoint}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`Failed to fetch ${endpoint}`)
