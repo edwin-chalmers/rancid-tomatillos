@@ -1,6 +1,7 @@
 import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
 
 function ErrorPage({ error }) {
+    return (
     <div className="error-505">
         <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo broken icon" />
         <h1>There was a glitch in the matrix..</h1>
@@ -14,6 +15,6 @@ function ErrorPage({ error }) {
         </ul>
         </div>
     </div>
-}
+)}
 
 export default ErrorPage
