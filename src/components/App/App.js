@@ -2,16 +2,15 @@ import './App.css'
 import Home from '../Home/Home'
 import Modal from '../Modal/Modal'
 import { useState, useEffect } from 'react'
-import { fetchData, fetchSingleMovie } from '../../apiCalls'
+import { fetchData } from '../../apiCalls'
 import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
-import { Route, Routes, BrowserRouter, Link, NavLink } from 'react-router-dom'
+import { Route, Routes, NavLink } from 'react-router-dom'
 
 
 function App() {
   const [movies, setMovies] = useState([])
   const [topDescription, setTopDescription] = useState([])
   const [error, setError] = useState('')
-  const [singleMovie, setSingleMovie] = useState({})
 
   useEffect(() => {
     fetchData('movies')
@@ -53,8 +52,8 @@ function App() {
         </nav>
       </header>
       <Routes>
-        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre}/>}/>
-        <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre}/>}/>
+        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
+        <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
       </Routes>
     </main>
   );

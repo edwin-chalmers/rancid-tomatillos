@@ -1,7 +1,7 @@
 import './Card.css'
 import { NavLink } from 'react-router-dom'
 
-function Card({title, image, id}) {
+function Card({ title, image, id }) {
 
     return (
         <>
