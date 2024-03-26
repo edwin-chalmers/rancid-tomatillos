@@ -1,25 +1,12 @@
 import './Modal.css'
 import { Link } from 'react-router-dom'
-// import { useParams } from 'react-router-dom'
 
-function Modal({ movie, handleClose, formatDate, formatGenre}) {
-    console.log(movie.title)
-    console.log(movie.id)
-    //724495
+function Modal({ movie, formatDate, formatGenre}) {
+
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
     }
-    // const history = useHistory()
-    // const homePage = () => {
-    //     history.push('/')
-    // }
-    // const homePage = () => {
-    //    return (
-    //         <Link to='/'/>
-    //     )
-    // }
-
 
     return (
         <dialog>
