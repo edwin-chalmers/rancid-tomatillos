@@ -1,6 +1,6 @@
 import './Modal.css'
 import { Link } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 function Modal({ movie, handleClose, formatDate, formatGenre}) {
     console.log(movie.title)
@@ -19,6 +19,7 @@ function Modal({ movie, handleClose, formatDate, formatGenre}) {
     //         <Link to='/'/>
     //     )
     // }
+
 
     return (
         <dialog>

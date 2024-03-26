@@ -68,7 +68,7 @@ function App() {
       <main className="App">
         <Routes>
           <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} handleOpen={handleOpen}/>}/>
-          <Route path='/:id' element={<Modal movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre} />}/>
+          <Route path='/:movieId' element={<Modal movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>}/>
         </Routes>
       </main>
     </BrowserRouter>
