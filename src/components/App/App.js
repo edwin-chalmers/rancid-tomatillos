@@ -57,20 +57,18 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-    <header>
-      <nav className="Nav-bar">
-        <h1>Rancid Tomatillos</h1>
-        <NavLink to='/'>Home</NavLink>
-      </nav>
-    </header>
-      <main className="App">
-        <Routes>
-          <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} handleOpen={handleOpen}/>}/>
-          <Route path='/:movieId' element={<Modal movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>}/>
-        </Routes>
-      </main>
-    </BrowserRouter>
+    <main className="App">
+      <header>
+        <nav className="Nav-bar">
+          <h1>Rancid Tomatillos</h1>
+          <NavLink to='/'>Home</NavLink>
+        </nav>
+      </header>
+      <Routes>
+        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} handleOpen={handleOpen}/>}/>
+        <Route path='/:movieId' element={<Modal movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>}/>
+      </Routes>
+    </main>
   );
 }
 
