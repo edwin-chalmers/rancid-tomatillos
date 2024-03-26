@@ -34,18 +34,6 @@ function App() {
       });
   }, []);
 
-  function fetchSelectedMovie(movieId) {
-    fetchSingleMovie(movieId)
-      .then(data => {
-        setSingleMovie(data.movie)
-        console.log(data.movie.title)
-      })
-  }
-
-  function handleOpen(movieId) {
-    fetchSelectedMovie(movieId)
-  }
-
   function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     const date = new Date(dateString);
@@ -65,8 +53,8 @@ function App() {
         </nav>
       </header>
       <Routes>
-        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} handleOpen={handleOpen}/>}/>
-        <Route path='/:movieId' element={<Modal movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>}/>
+        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre}/>}/>
+        <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre}/>}/>
       </Routes>
     </main>
   );

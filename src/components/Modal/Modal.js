@@ -1,8 +1,20 @@
 import './Modal.css'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { fetchSingleMovie } from '../../apiCalls'
 
-function Modal({ movie, formatDate, formatGenre}) {
+function Modal({ formatDate, formatGenre }) {
 
+    const [movie, setMovie] = useState({})
+    const movieId = useParams().movieId
+
+    useEffect(() => {
+        fetchSingleMovie(movieId)
+            .then(data => {
+                setMovie(data.movie)
+                console.log(data.movie.title)
+            })
+    })
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
