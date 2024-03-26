@@ -3,9 +3,11 @@ import './App.css'
 import Movies from '../Movies/Movies'
 import TopMovie from '../TopMovie/TopMovie'
 import Modal from '../Modal/Modal'
+import ErrorPage from '../ErrorPage/ErrorPage'
 import { useState, useEffect} from 'react'
 import { fetchData, fetchSingleMovie } from '../../apiCalls'
-import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
+import PropTypes from 'prop-types'
+
 
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
   const [singleMovieId, setSingleMovieId] = useState(0)
   const [singleMovie, setSingleMovie] = useState({})
   const [open, setOpen] = useState(false)
+
+
+
 
   useEffect(() => {
     fetchData('movies')
@@ -37,6 +42,9 @@ function App() {
       });
   }, []);
 
+
+
+  
   function fetchSelectedMovie(movieId) {
     fetchSingleMovie(movieId)
     .then(data => {
@@ -65,22 +73,13 @@ function formatGenre(genres) {
     return genres.join(" - ")
   }
 
+
+
+
   return (
     <main className="App">
       {!movies.length && (
-        <div className="error-505">
-          <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo" />
-          <h1>There was a glitch in the matrix..</h1>
-          <div className='error-message'>
-            <p>{error}. We now know about this issue and are working to fix it.</p>
-            <p>In the meantime, here is what you can do:</p>
-            <p>&nbsp;</p>
-            <ul>
-              <li><b>Refresh the page</b>(Sometimes this helps)</li>
-              <li><b>Try again</b> in 30 minutes</li>
-            </ul>
-          </div>
-        </div>
+        <ErrorPage error={error}/>
       )}
       <nav className="Nav-bar"></nav>
       {movies.length && (
@@ -94,5 +93,33 @@ function formatGenre(genres) {
     </main>
   );
 }
+
+
+
+
+ErrorPage.propTypes = {
+  error: PropTypes.string.isRequired
+}
+
+Modal.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  movie: PropTypes.array.isRequired,
+  formatDate: PropTypes.func.isRequired,
+  formatGenre: PropTypes.func.isRequired,
+};
+
+TopMovie.propTypes = {
+  movies: PropTypes.array.isRequired,
+  topDescription: PropTypes.array.isRequired,
+  formatDate: PropTypes.func.isRequired,
+  formatGenre: PropTypes.func.isRequired,
+}
+
+Movies.propTypes = {
+  movies: PropTypes.array.isRequired,
+  handleOpen: PropTypes.func.isRequired,
+}
+
 
 export default App
