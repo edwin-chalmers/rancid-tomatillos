@@ -1,7 +1,10 @@
 import './Modal.css'
+import { Link } from 'react-router-dom'
 
 function Modal({ movie, handleClose, formatDate, formatGenre}) {
-
+    console.log(movie.title)
+    console.log(movie.id)
+    //724495
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
