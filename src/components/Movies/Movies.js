@@ -11,7 +11,6 @@ function Movies({ movies, setMovie, handleOpen}) {
                 title={movie.title}
                 image={movie.poster_path}
                 key={movie.id}
-                // fetchSelectedMovie={fetchSelectedMovie}
                 setMovie={setMovie}
                 handleOpen={handleOpen}
             />
@@ -26,8 +25,3 @@ function Movies({ movies, setMovie, handleOpen}) {
 }
 
 export default Movies;
-
-// movies --> ids
-// id --> genre list
-// genre list --> list of all genres
-// 

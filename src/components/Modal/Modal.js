@@ -1,5 +1,6 @@
 import './Modal.css'
 import { Link } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 function Modal({ movie, handleClose, formatDate, formatGenre}) {
     console.log(movie.title)
@@ -9,6 +10,15 @@ function Modal({ movie, handleClose, formatDate, formatGenre}) {
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
     }
+    // const history = useHistory()
+    // const homePage = () => {
+    //     history.push('/')
+    // }
+    // const homePage = () => {
+    //    return (
+    //         <Link to='/'/>
+    //     )
+    // }
 
     return (
         <dialog>
@@ -35,7 +45,7 @@ function Modal({ movie, handleClose, formatDate, formatGenre}) {
                         </div>
                     </div>
                 </div>
-                <button onClick={handleClose}>⃪ Back to home</button>
+                <button>⃪<Link to='/'>⃪Back to home</Link></button>
             </div>
         </dialog>
     )

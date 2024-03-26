@@ -5,7 +5,6 @@ import TopMovie from '../TopMovie/TopMovie'
 function Home({movies, setMovie, handleOpen, topDescription, formatDate, formatGenre,}) {
     const main =  (
         <>
-            <nav className="Nav-bar">NAV</nav>
             <TopMovie
                 topDescription={topDescription}
                 formatDate={formatDate}
@@ -25,5 +24,5 @@ function Home({movies, setMovie, handleOpen, topDescription, formatDate, formatG
         </>
     )
 }
-// topDescription, formatDate, formatGenre,
+
 export default Home
