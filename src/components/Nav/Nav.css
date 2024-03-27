@@ -7,14 +7,12 @@
     padding: 0 20px 0 15px;
     background-image: linear-gradient(to right, rgb(13, 13, 13), rgb(15, 37, 9));
     width: auto;
-  }
+}
 
 .rancid-tomatillo-logo {
     height: 30px;
     width: auto;
     margin-left: 10px;
-
-
 }
 
 .Nav-bar p {
@@ -22,4 +20,33 @@
     font-weight: 900;
     font-size: large;
     margin: 0 0 0 10px;
+}
+
+header nav {
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+    align-items: center;
+    margin: 0 auto;
+    padding-right: 10px;
+    background: black;
+    color: white;
+}
+
+header nav h1 {
+    font-size: 1.2em;
+    margin-right: auto;
+    margin-bottom: 9px;
+    padding-bottom: 3px;
+}
+
+header nav a {
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 4px;
+    color: white;
+}
+
+header nav a.active {
+    border-bottom: 3px solid rgba(115, 171, 32, 0.53);
 }

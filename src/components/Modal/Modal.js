@@ -7,7 +7,7 @@ function Modal({ formatDate, formatGenre }) {
 
     const [movie, setMovie] = useState({})
     const movieId = useParams().movieId
-
+    console.log(movieId)
     useEffect(() => {
         fetchSingleMovie(movieId)
             .then(data => {
@@ -29,23 +29,22 @@ function Modal({ formatDate, formatGenre }) {
                 <div className='movie-details'>
                     <h1>{movie.title}</h1>
                     <p className='overview'>{movie.overview}</p>
-                    <div className='deep-details'>
-                        {/* change to sematic dl */}
+                    <dl className='deep-details'>
                         <div>
-                            <p className='details-title'>Rating:</p>
-                            <p className='details-data'>{movie.average_rating}/10</p>
+                            <dt className='details-title'>Rating:</dt>
+                            <dd className='details-data'>{movie.average_rating}/10</dd>
                         </div>
                         <div>
-                            <p className='details-title'>Release Date:</p>
-                            {movie.release_date && (<p className='details-data'>{formatDate(movie.release_date)}</p>)}
+                            <dt className='details-title'>Release Date:</dt>
+                            {movie.release_date && (<dd className='details-data'>{formatDate(movie.release_date)}</dd>)}
                         </div>
                         <div>
-                            <p className='details-title'>Genre:</p>
-                            {movie.genres && (<p className='details-data'>{formatGenre(movie.genres)}</p>)}
+                            <dt className='details-title'>Genre:</dt>
+                            {movie.genres && (<dd className='details-data'>{formatGenre(movie.genres)}</dd>)}
                         </div>
-                    </div>
+                    </dl>
                 </div>
-                <button>⃪<Link to='/'>⃪Back to home</Link></button>
+                <button>⃪<Link to='/'>⃪ Back to home</Link></button>
             </div>
         </dialog>
     )

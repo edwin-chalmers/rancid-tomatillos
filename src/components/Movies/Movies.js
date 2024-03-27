@@ -18,8 +18,11 @@ function Movies({ movies, setMovie, handleOpen}) {
     })
 
     return (
-        <div className='movies-container'>
-            {moviesCard}
+        <div className='wrapper'>
+            <h3>All movies:</h3>
+            <div className='movies-container'>
+                {moviesCard}
+            </div>
         </div>
     )
 }
