@@ -48,21 +48,15 @@ function App() {
   return (
     <main className="App">
       <header>
-        <nav className="Nav-bar">
-          <h1>Rancid Tomatillos</h1>
-          <NavLink to='/'>Home</NavLink>
-        </nav>
+        <Nav />
       </header>
       <Routes>
         <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
         <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
       </Routes>
-
       {!movies.length && (
         <ErrorPage error={error}/>
       )}
-      <Nav />
-
     </main>
   );
 }
@@ -80,15 +74,15 @@ Modal.propTypes = {
   formatGenre: PropTypes.func.isRequired,
 };
 
-TopMovie.propTypes = {
-  topDescription: PropTypes.object.isRequired,
-  formatDate: PropTypes.func.isRequired,
-  formatGenre: PropTypes.func.isRequired,
-}
+// TopMovie.propTypes = {
+//   topDescription: PropTypes.object.isRequired,
+//   formatDate: PropTypes.func.isRequired,
+//   formatGenre: PropTypes.func.isRequired,
+// }
 
-Movies.propTypes = {
-  movies: PropTypes.array.isRequired,
-  handleOpen: PropTypes.func.isRequired,
-}
+// Movies.propTypes = {
+//   movies: PropTypes.array.isRequired,
+//   handleOpen: PropTypes.func.isRequired,
+// }
 
 export default App
