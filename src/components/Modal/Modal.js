@@ -14,7 +14,7 @@ function Modal({ formatDate, formatGenre }) {
                 setMovie(data.movie)
                 console.log(data.movie.title)
             })
-    })
+    }, [])
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
