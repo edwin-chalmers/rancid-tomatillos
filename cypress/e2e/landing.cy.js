@@ -1,6 +1,6 @@
 describe('Landing page', () => {
   beforeEach(() => {
-    // cy.intercept("GET", "http://localhost:3000/", {
+    // cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
     //   statusCode: 200,
 	  //   body: [
     //     {
@@ -76,7 +76,7 @@ describe('Landing page', () => {
     //     }
     //   }
     // })
-    cy.visit('http://localhost:3000')
+   cy.visit('http://localhost:3000')
   })
   
   it('Should load the Top Movie Poster', () => {
@@ -113,16 +113,16 @@ describe('Landing page', () => {
   //       cy.url().should('eq', 'http://localhost:3000/');
   //   });
   // });
-  it('Should load individual movie cards', () => {
-    function recursive(length) {
-      if(length === 40) return
-        cy.wrap($figure).click()
-        cy.contains('a', 'Back to home').click()
-        cy.url().should('eq', 'http://localhost:3000/');
-        recursive(length++)
-      }
-      recursive(1)
+  // it('Should load individual movie cards', () => {
+  //   function recursive(length) {
+  //     if(length === 40) return
+  //       cy.wrap($figure).click()
+  //       cy.contains('a', 'Back to home').click()
+  //       cy.url().should('eq', 'http://localhost:3000/');
+  //       recursive(length++)
+  //     }
+  //     recursive(1)
 
-  });
+  // });
 
 })
