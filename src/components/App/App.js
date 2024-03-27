@@ -47,6 +47,13 @@ function App() {
   }
 
   return (
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rancid Tomatillos</title>
+  </head>
+  <body>
     <main className="App">
       {showErrorPage && (
         <ErrorPage error={errorMessage}/>
@@ -59,6 +66,8 @@ function App() {
         <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
       </Routes>
     </main>
+  </body>
+</html>
   );
 }
 
