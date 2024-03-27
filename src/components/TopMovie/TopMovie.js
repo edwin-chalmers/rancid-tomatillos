@@ -1,6 +1,6 @@
 import './TopMovie.css'
 
-function TopMovie({ movies, topDescription, formatDate, formatGenre, }) {
+function TopMovie({ topDescription, formatDate, formatGenre, }) {
 
     return (
         <div className='overlay'>
