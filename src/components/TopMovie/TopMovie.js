@@ -1,6 +1,6 @@
 import './TopMovie.css'
 
-function TopMovie({ movies, topDescription, formatDate, formatGenre, }) {
+function TopMovie({ topDescription, formatDate, formatGenre, }) {
 
     // function formatDate(dateString) {
     //     const options = { year: 'numeric', month: 'short', day: 'numeric' };

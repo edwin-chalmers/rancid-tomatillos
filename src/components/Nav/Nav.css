@@ -1,0 +1,24 @@
+.Nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 2vh;
+    padding: 5px;
+    background-image: linear-gradient(to right, rgb(13, 13, 13), rgb(15, 37, 9));
+  }
+
+.rancid-tomatillo-logo {
+    height: 30px;
+    width: auto;
+    margin-left: 10px;
+
+
+}
+
+.Nav-bar p {
+    color: white;
+    font-weight: 900;
+    font-size: large;
+    margin: 0 0 0 10px;
+}

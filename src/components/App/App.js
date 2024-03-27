@@ -1,14 +1,15 @@
 import './App.css'
-// import movieData from '../../movieData'
+
 import Movies from '../Movies/Movies'
 import TopMovie from '../TopMovie/TopMovie'
 import Modal from '../Modal/Modal'
 import ErrorPage from '../ErrorPage/ErrorPage'
-import { useState, useEffect} from 'react'
-import { fetchData, fetchSingleMovie } from '../../apiCalls'
+import Nav from '../Nav/Nav'
+
 import PropTypes from 'prop-types'
 
-
+import { useState, useEffect} from 'react'
+import { fetchData, fetchSingleMovie } from '../../apiCalls'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -17,6 +18,7 @@ function App() {
   const [singleMovieId, setSingleMovieId] = useState(0)
   const [singleMovie, setSingleMovie] = useState({})
   const [open, setOpen] = useState(false)
+
 
 
 
@@ -44,7 +46,8 @@ function App() {
 
 
 
-  
+
+
   function fetchSelectedMovie(movieId) {
     fetchSingleMovie(movieId)
     .then(data => {
@@ -76,23 +79,25 @@ function formatGenre(genres) {
 
 
 
+
   return (
     <main className="App">
       {!movies.length && (
         <ErrorPage error={error}/>
       )}
-      <nav className="Nav-bar"></nav>
+      <Nav />
       {movies.length && (
         <>
           {singleMovieId !== 0 
             ? <Modal handleClose={handleClose} open={open} movie={singleMovie} formatDate={formatDate} formatGenre={formatGenre}/>
-            : (<><TopMovie movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre}/>
+            : (<><TopMovie topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre}/>
               <Movies movies={movies} handleOpen={handleOpen}/></>)}
         </>
       )}
     </main>
   );
 }
+
 
 
 
@@ -110,8 +115,7 @@ Modal.propTypes = {
 };
 
 TopMovie.propTypes = {
-  movies: PropTypes.array.isRequired,
-  topDescription: PropTypes.array.isRequired,
+  topDescription: PropTypes.object.isRequired,
   formatDate: PropTypes.func.isRequired,
   formatGenre: PropTypes.func.isRequired,
 }
@@ -120,6 +124,5 @@ Movies.propTypes = {
   movies: PropTypes.array.isRequired,
   handleOpen: PropTypes.func.isRequired,
 }
-
 
 export default App

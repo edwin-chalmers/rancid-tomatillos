@@ -1,9 +1,9 @@
-import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
+import rancidTomatilloError from '../../images/rancid-tomatillo.png';
 
 function ErrorPage({ error }) {
     return (
     <div className="error-505">
-        <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo broken icon" />
+        <img className="rancid-tomatillo-error" src={rancidTomatilloError} alt="Rancid Tomatillo broken icon" />
         <h1>There was a glitch in the matrix..</h1>
         <div className='error-message'>
         <p>{error}. We now know about this issue and are working to fix it.</p>
