@@ -12,7 +12,7 @@ dialog img {
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    box-shadow: 0 0 250px 80px black inset;
+    box-shadow: 0 0 250px 150px black inset;
 }
 
 .background-overlay {

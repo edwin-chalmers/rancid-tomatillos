@@ -2,16 +2,6 @@ import './TopMovie.css'
 
 function TopMovie({ topDescription, formatDate, formatGenre, }) {
 
-    // function formatDate(dateString) {
-    //     const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    //     const date = new Date(dateString);
-    //     return date.toLocaleDateString('en-US', options);
-    // }
-
-    // function formatGenre(genres) { 
-    //     return genres.join(" - ")
-    // }
-
     return (
         <div className='overlay'>
             <figure className='top-movie'>

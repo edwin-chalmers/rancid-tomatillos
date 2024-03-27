@@ -1,7 +1,20 @@
 import './Modal.css'
+import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { fetchSingleMovie } from '../../apiCalls'
 
-function Modal({ movie, handleClose, formatDate, formatGenre}) {
+function Modal({ formatDate, formatGenre }) {
 
+    const [movie, setMovie] = useState({})
+    const movieId = useParams().movieId
+
+    useEffect(() => {
+        fetchSingleMovie(movieId)
+            .then(data => {
+                setMovie(data.movie)
+                console.log(data.movie.title)
+            })
+    })
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
@@ -32,7 +45,7 @@ function Modal({ movie, handleClose, formatDate, formatGenre}) {
                         </div>
                     </div>
                 </div>
-                <button onClick={handleClose}>⃪ Back to home</button>
+                <button>⃪<Link to='/'>⃪Back to home</Link></button>
             </div>
         </dialog>
     )
