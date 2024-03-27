@@ -13,6 +13,11 @@ h1 {
     z-index: 1;
 }
 
+h2 {
+    padding-left: 10px;
+    font-style: italic;
+}
+
 .top-movie {
     position: absolute;
     display: flex;
@@ -34,7 +39,38 @@ h1 {
     z-index: 1;
     width: 600px;
     max-height: 100%;
-    
+}
+
+.top-movie-info p {
+    max-width: fit-content;
+    padding-left: 10px;
+}
+
+.data {
+    font-size: smaller;
+    margin-bottom: 0;
+    border-radius: 15px;
+    padding: 2px 5px;
+    border-style: hidden;
+    background-color: rgba(139, 206, 38, 0.53);
+}
+
+.genres-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-movie button {
+    border: none;
+    font-size: larger;
+    background-color: transparent;
+    color: rgb(255, 255, 255, .95);
+    padding: 5px;
+    width: max-content;
+}
+
+.top-movie a {
+    color: rgb(255, 255, 255, .95);
 }
 
 .overlay {
@@ -43,7 +79,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: linear-gradient(to right, rgb(255, 27, 27), rgba(0, 0, 0, 0.229)); */
 }
 
 .hidden {
