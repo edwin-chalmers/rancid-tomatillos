@@ -2,6 +2,7 @@ import './Modal.css'
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { fetchSingleMovie } from '../../apiCalls'
+import PropTypes from 'prop-types'
 
 function Modal({ formatDate, formatGenre }) {
 
@@ -12,7 +13,6 @@ function Modal({ formatDate, formatGenre }) {
         fetchSingleMovie(movieId)
             .then(data => {
                 setMovie(data.movie)
-                console.log(data.movie.title)
             })
     }, [])
     const backdrop = movie.backdrop_path
@@ -50,5 +50,10 @@ function Modal({ formatDate, formatGenre }) {
         </dialog>
     )
 }
+
+Modal.propTypes = {
+    formatDate: PropTypes.func.isRequired,
+    formatGenre: PropTypes.func.isRequired,
+  };
 
 export default Modal
