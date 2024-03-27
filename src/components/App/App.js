@@ -12,25 +12,26 @@ import PropTypes from 'prop-types'
 function App() {
   const [movies, setMovies] = useState([])
   const [topDescription, setTopDescription] = useState([])
-  const [error, setError] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showErrorPage, setShowErrorPage] = useState(false)
 
   useEffect(() => {
     fetchData('movies')
       .then(data => {
+        setShowErrorPage(false)
         const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating)
         const topMovie = sortedMovies[0]
         setMovies(data.movies) // Use the unsorted movies data to set state
         if (topMovie) {
           return fetchData(`movies/${topMovie.id}`)
-        }
-        // throw new Error('No top movie found')
-        setError("Can't fetch the movie :(")
+        } else { setErrorMessage("Can't fetch the movie :(") }
       })
       .then(topMovieDescription => {
         setTopDescription(topMovieDescription.movie);
       })
       .catch(error => {
-        setError('Oops! Something broke.')
+        setErrorMessage('404')
+        setShowErrorPage(true)
         console.log(error.message)
       });
   }, []);
@@ -47,6 +48,9 @@ function App() {
 
   return (
     <main className="App">
+      {showErrorPage && (
+        <ErrorPage error={errorMessage}/>
+      )}
       <header>
         <Nav />
       </header>
@@ -54,9 +58,6 @@ function App() {
         <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
         <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
       </Routes>
-      {!movies.length && (
-        <ErrorPage error={error}/>
-      )}
     </main>
   );
 }
