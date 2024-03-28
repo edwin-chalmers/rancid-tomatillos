@@ -6,7 +6,6 @@ import { fetchData } from '../../apiCalls'
 import { Route, Routes, NavLink } from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
-import PropTypes from 'prop-types'
 import { formatDate, formatGenre } from '../../utils/utils'
 
 function App() {
