@@ -3,7 +3,7 @@ import Home from '../Home/Home'
 import Modal from '../Modal/Modal'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import { Route, Routes, NavLink, Navigate } from 'react-router-dom'
+import { Route, Routes, NavLink, Navigate, useNavigate } from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
 import PropTypes from 'prop-types'
@@ -14,6 +14,7 @@ function App() {
   const [topDescription, setTopDescription] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
   const [showErrorPage, setShowErrorPage] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchData('movies')
@@ -55,8 +56,9 @@ function App() {
             <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
             <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
             <Route path='/error' element={<ErrorPage />}/>
-            <Route path='*' element={<Navigate replace to='/error'/>}/>
+            <Route path='*' element={<ErrorPage error='*'/>}/>
           </Routes>
+              {/* <Navigate to='/error' replace={true}/> */}
         </main>
       </body>
     </html>

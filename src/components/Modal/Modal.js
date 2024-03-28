@@ -21,7 +21,7 @@ function Modal({ formatDate, formatGenre }) {
                 const err = error.message
                 navigate("/error", { replace: true })
             })
-    }, [])
+    }, [movieId, navigate])
 
     const backdrop = movie.backdrop_path
     const figBackground = {
