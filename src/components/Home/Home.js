@@ -3,7 +3,7 @@ import Movies from '../Movies/Movies'
 import TopMovie from '../TopMovie/TopMovie'
 import PropTypes from 'prop-types'
 
-function Home({movies, setMovie, handleOpen, topDescription, formatDate, formatGenre,}) {
+function Home({movies, topDescription, formatDate, formatGenre,}) {
     const main =  (
         <>
             <TopMovie
@@ -13,8 +13,6 @@ function Home({movies, setMovie, handleOpen, topDescription, formatDate, formatG
             />
             <Movies 
                 movies={movies}
-                setMovie={setMovie}
-                handleOpen={handleOpen}
             />
         </>
       )
@@ -34,7 +32,6 @@ TopMovie.propTypes = {
 
 Movies.propTypes = {
   movies: PropTypes.array.isRequired,
-  handleOpen: PropTypes.func.isRequired,
 }
 
 export default Home

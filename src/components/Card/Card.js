@@ -1,12 +1,12 @@
 import './Card.css'
 import { NavLink } from 'react-router-dom'
 
-function Card({ title, image, id }) {
+function Card({ movie }) {
 
     return (
             <figure className='card' >
-                <NavLink to={`/${id}`}>
-                    <img className="poster" id={id} src={image} alt={`${title} poster`} height="350px" width="300px" />
+                <NavLink to={`/${movie.id}`}>
+                    <img className="poster" id={movie.id} src={movie.poster_path} alt={`${movie.title} poster`} height="350px" width="300px" />
                 </NavLink>
             </figure>
     )
