@@ -21,8 +21,8 @@ function ErrorPage({ error }) {
     )
 }
 
-ErrorPage.propTypes = {
-    error: PropTypes.string.isRequired
-}
+// ErrorPage.propTypes = {
+//     error: PropTypes.string.isRequired
+// }
 
 export default ErrorPage
