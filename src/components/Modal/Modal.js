@@ -8,7 +8,7 @@ function Modal({ formatDate, formatGenre }) {
 
     const [movie, setMovie] = useState({})
     const movieId = useParams().movieId
-    console.log(movieId)
+
     useEffect(() => {
         fetchSingleMovie(movieId)
             .then(data => {
@@ -53,6 +53,6 @@ function Modal({ formatDate, formatGenre }) {
 Modal.propTypes = {
     formatDate: PropTypes.func.isRequired,
     formatGenre: PropTypes.func.isRequired,
-  };
+};
 
 export default Modal

@@ -2,14 +2,13 @@
 import './Movies.css'
 import Card from '../Card/Card'
 
-function Movies({ movies, setMovie}) {
+function Movies({ movies }) {
 
     const moviesCard = movies.map(movie => {
         return (
             <Card
                 movie={movie}
                 key={movie.id}
-                setMovie={setMovie}
             />
         )
     })
