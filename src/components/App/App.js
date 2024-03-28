@@ -3,11 +3,11 @@ import Home from '../Home/Home'
 import Modal from '../Modal/Modal'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import rancidTomatilloLogo from '../../images/rancid-tomatillo.png';
 import { Route, Routes, NavLink } from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
 import PropTypes from 'prop-types'
+import { formatDate, formatGenre } from '../../utils/utils'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -36,29 +36,28 @@ function App() {
       });
   }, []);
 
-  function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', options);
-  }
-
-  function formatGenre(genres) {
-    return genres.join(" - ")
-  }
-
   return (
-    <main className="App">
-      {showErrorPage && (
-        <ErrorPage error={errorMessage}/>
-      )}
-      <header>
-        <Nav />
-      </header>
-      <Routes>
-        <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
-        <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
-      </Routes>
-    </main>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rancid Tomatillos</title>
+      </head>
+      <body>
+        <main className="App">
+          {showErrorPage && (
+            <ErrorPage error={errorMessage} />
+          )}
+          <header>
+            <Nav />
+          </header>
+          <Routes>
+            <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
+            <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
+          </Routes>
+        </main>
+      </body>
+    </html>
   );
 }
 

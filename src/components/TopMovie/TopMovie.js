@@ -1,4 +1,5 @@
 import './TopMovie.css'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function TopMovie({ topDescription, formatDate, formatGenre, }) {
@@ -11,8 +12,11 @@ function TopMovie({ topDescription, formatDate, formatGenre, }) {
                     <h1>{topDescription.title}</h1>
                     <h2>{topDescription.tagline}</h2>
                     <p>{topDescription.overview}</p>
-                    <p>{formatDate(topDescription.release_date)}</p>
-                    {topDescription.genres && (<p>{formatGenre(topDescription.genres)}</p>)}
+                    {/* <p className='data'>{formatDate(topDescription.release_date)}</p> */}
+                    <div className='genres-button'>
+                        {topDescription.genres && (<p className='data'>{formatGenre(topDescription.genres)}</p>)}
+                        <button><NavLink to={`/${topDescription.id}`}>More Details →</NavLink></button>
+                    </div>
                 </div>
             </figure>
             <img className='top-movie-img' src={topDescription.backdrop_path} alt={`${topDescription.title} backdrop`} width='100%'/>
