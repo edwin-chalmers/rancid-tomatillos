@@ -14,11 +14,10 @@ function Modal({ formatDate, formatGenre }) {
             .then(data => {
                 if (data) {
                     setMovie(data.movie)
-                } 
+                }
             })
             .catch(error => { //handling 500 error (which is actually a 404 deep down)
-                console.log('modal error handling', error.message)
-                const err = error.message
+                console.log(error)
                 navigate("/error", { replace: true })
             })
     }, [movieId, navigate])

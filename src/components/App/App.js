@@ -3,39 +3,44 @@ import Home from '../Home/Home'
 import Modal from '../Modal/Modal'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import { Route, Routes, NavLink, Navigate, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
-import PropTypes from 'prop-types'
 import { formatDate, formatGenre } from '../../utils/utils'
 
 function App() {
   const [movies, setMovies] = useState([])
   const [topDescription, setTopDescription] = useState([])
-  const [errorMessage, setErrorMessage] = useState('')
-  const [showErrorPage, setShowErrorPage] = useState(false)
+  // const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
     fetchData('movies')
       .then(data => {
-        setShowErrorPage(false)
-        const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating)
-        const topMovie = sortedMovies[0]
-        setMovies(data.movies) // Use the unsorted movies data to set state
-        if (topMovie) {
-          return fetchData(`movies/${topMovie.id}`)
-        } else { setErrorMessage("Can't fetch the movie :(") }
+        if (data) {
+          const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating)
+          const topMovie = sortedMovies[0]
+
+          setMovies(data.movies) // Use the unsorted movies data to set state
+
+          if (topMovie) {
+            return fetchData(`movies/${topMovie.id}`)
+          } else {
+            // setErrorMessage("Can't fetch the movie :(") 
+            navigate("/error", { replace: true })
+          }
+
+        }
       })
       .then(topMovieDescription => {
         setTopDescription(topMovieDescription.movie);
       })
       .catch(error => {
-        setErrorMessage('404')
-        setShowErrorPage(true)
+        navigate("/error", { replace: true })
+        // setErrorMessage('404')
         console.log(error.message)
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <html lang="en">
@@ -46,19 +51,15 @@ function App() {
       </head>
       <body>
         <main className="App">
-          {/* {showErrorPage && (
-            <ErrorPage error={errorMessage} />
-          )} */}
           <header>
             <Nav />
           </header>
           <Routes>
             <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
             <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
-            <Route path='/error' element={<ErrorPage />}/>
-            <Route path='*' element={<ErrorPage error='*'/>}/>
+            <Route path='/error' element={<ErrorPage />} />
+            <Route path='*' element={<ErrorPage error='*' />} />
           </Routes>
-              {/* <Navigate to='/error' replace={true}/> */}
         </main>
       </body>
     </html>
