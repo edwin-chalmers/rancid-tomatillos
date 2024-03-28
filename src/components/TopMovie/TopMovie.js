@@ -2,7 +2,7 @@ import './TopMovie.css'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-function TopMovie({ topDescription, formatDate, formatGenre, }) {
+function TopMovie({ topDescription, formatGenre, }) {
 
     return (
         <div className='overlay'>
@@ -25,17 +25,15 @@ function TopMovie({ topDescription, formatDate, formatGenre, }) {
 }
 
 TopMovie.propTypes = {
-  topDescription: PropTypes.object.isRequired,
-  topDescription: {
-    title: PropTypes.string.isRequired,
-    tagline: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
-    backdrop_path: PropTypes.string.isRequired,
-  },
-  formatDate: PropTypes.func.isRequired,
-  formatGenre: PropTypes.func.isRequired,
+    topDescription: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        tagline: PropTypes.string.isRequired,
+        overview: PropTypes.string.isRequired,
+        release_date: PropTypes.string.isRequired,
+        genres: PropTypes.array.isRequired,
+        backdrop_path: PropTypes.string.isRequired,
+      }).isRequired,
+      formatGenre: PropTypes.func.isRequired,
 }
 
 export default TopMovie

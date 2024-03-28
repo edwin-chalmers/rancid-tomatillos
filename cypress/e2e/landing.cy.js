@@ -84,9 +84,10 @@ describe('Landing page', () => {
     .contains("h1", "Rancid Tomatillos")
     .get('figure.top-movie').within(() => {
       cy.get('h1').contains('The Lair') 
-      .get('p').eq(1).contains('Oct 27, 2022')
-      .get('p').eq(2).contains('Action - Horror')
+      cy.get('h2').contains('Unlocked. Unleashed.')
+      cy.get('p').eq(1).contains('Action - Horror')
     });
+
   })
   
   it('Should load individual movie cards ', () => {
@@ -94,35 +95,33 @@ describe('Landing page', () => {
       cy.get('figure').children()
     })
   })
-  
-  // it('Should load individual movie cards ', () => {
-  //   cy.get('figure.card').each(($figure) => {
-  //     cy.wrap($figure).find('img').should('exist')
-  //   });
-  //   cy.get('.card #436270').click()
-  //   .url().should('include', '/436270')
-  //   .get('dialog').within(() => {
-  //     cy.get('h1').contains('Black Adam')
-  //   })
-  // })
-  
-  // it('Should load individual movie cards', () => {
-  //   cy.get('figure.card').each(($figure, index) => {
-  //       cy.wrap($figure).click()
-  //       cy.contains('a', 'Back to home').click()
-  //       cy.url().should('eq', 'http://localhost:3000/');
-  //   });
-  // });
-  // it('Should load individual movie cards', () => {
-  //   function recursive(length) {
-  //     if(length === 40) return
-  //       cy.wrap($figure).click()
-  //       cy.contains('a', 'Back to home').click()
-  //       cy.url().should('eq', 'http://localhost:3000/');
-  //       recursive(length++)
-  //     }
-  //     recursive(1)
 
-  // });
-
+  it('Should check if al the cards have images', () => {
+    cy.get('figure.card').each(($figure, index, $list) => {
+      cy.wrap($figure).find('img').should('exist');
+    });
+  });
+  
+  it('Should the first movie cards ', () => {
+    cy.get('figure.card').each(($figure) => {
+      cy.wrap($figure).find('img').should('exist')
+    });
+    cy.get('.card #436270').click()
+    .url().should('include', '/436270')
+    .get('dialog').within(() => {
+      cy.get('h1').contains('Black Adam')
+    })
+  })
+  
+  it('Should the first movie cards ', () => {
+    cy.get('figure.card').each(($figure) => {
+      cy.wrap($figure).find('img').should('exist')
+    });
+    cy.get('.card #760104').click()
+    .url().should('include', '/760104')
+    .get('dialog').within(() => {
+      cy.get('h1').contains('X')
+    })
+  })
+  
 })

@@ -3,17 +3,11 @@ import Movies from '../Movies/Movies'
 import TopMovie from '../TopMovie/TopMovie'
 import PropTypes from 'prop-types'
 
-function Home({movies, topDescription, formatDate, formatGenre,}) {
+function Home({movies, topDescription, formatGenre,}) {
     const main =  (
         <>
-            <TopMovie
-                topDescription={topDescription}
-                formatDate={formatDate}
-                formatGenre={formatGenre}
-            />
-            <Movies 
-                movies={movies}
-            />
+            <TopMovie topDescription={topDescription} formatGenre={formatGenre} />
+            <Movies movies={movies} />
         </>
       )
     
@@ -22,16 +16,6 @@ function Home({movies, topDescription, formatDate, formatGenre,}) {
             {main}
         </>
     )
-}
-
-TopMovie.propTypes = {
-  topDescription: PropTypes.object.isRequired,
-  formatDate: PropTypes.func.isRequired,
-  formatGenre: PropTypes.func.isRequired,
-}
-
-Movies.propTypes = {
-  movies: PropTypes.array.isRequired,
 }
 
 export default Home
