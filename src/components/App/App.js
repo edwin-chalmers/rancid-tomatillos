@@ -3,7 +3,7 @@ import Home from '../Home/Home'
 import Modal from '../Modal/Modal'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import { Route, Routes, NavLink } from 'react-router-dom'
+import { Route, Routes, NavLink, Navigate } from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
 import PropTypes from 'prop-types'
@@ -45,15 +45,17 @@ function App() {
       </head>
       <body>
         <main className="App">
-          {showErrorPage && (
+          {/* {showErrorPage && (
             <ErrorPage error={errorMessage} />
-          )}
+          )} */}
           <header>
             <Nav />
           </header>
           <Routes>
             <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatDate={formatDate} formatGenre={formatGenre} />} />
             <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
+            <Route path='/error' element={<ErrorPage />}/>
+            <Route path='*' element={<Navigate replace to='/error'/>}/>
           </Routes>
         </main>
       </body>

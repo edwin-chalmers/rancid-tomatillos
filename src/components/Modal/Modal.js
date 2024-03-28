@@ -1,20 +1,30 @@
 import './Modal.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { fetchSingleMovie } from '../../apiCalls'
 import PropTypes from 'prop-types'
 
 function Modal({ formatDate, formatGenre }) {
-
+    const navigate = useNavigate()
     const [movie, setMovie] = useState({})
     const movieId = useParams().movieId
     console.log(movieId)
+
     useEffect(() => {
         fetchSingleMovie(movieId)
             .then(data => {
-                setMovie(data.movie)
+                if (data) {
+                    console.log('modal movie data', data)
+                    setMovie(data.movie)
+                } 
+            })
+            .catch(error => { //handling 500 error (which is actually a 404 deep down)
+                console.log(error.message)
+                const err = error.message
+                navigate("/error", { state: { error: err }, replace: true })
             })
     }, [])
+
     const backdrop = movie.backdrop_path
     const figBackground = {
         backgroundImage: 'url(' + backdrop + ')',
@@ -53,6 +63,6 @@ function Modal({ formatDate, formatGenre }) {
 Modal.propTypes = {
     formatDate: PropTypes.func.isRequired,
     formatGenre: PropTypes.func.isRequired,
-  };
+};
 
 export default Modal
