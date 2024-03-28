@@ -1,6 +1,7 @@
 
 import "./ErrorPage.css"
 import rancidTomatilloError from '../../images/rancid-tomatillo.png';
+import PropTypes from 'prop-types'
 
 function ErrorPage({ error }) {
     return (
@@ -18,5 +19,9 @@ function ErrorPage({ error }) {
         </div>
     </div>
 )}
+
+ErrorPage.propTypes = {
+    error: PropTypes.string.isRequired
+}
 
 export default ErrorPage

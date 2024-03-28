@@ -61,28 +61,4 @@ function App() {
   );
 }
 
-
-ErrorPage.propTypes = {
-  error: PropTypes.string.isRequired
-}
-
-Modal.propTypes = {
-  handleClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  movie: PropTypes.array.isRequired,
-  formatDate: PropTypes.func.isRequired,
-  formatGenre: PropTypes.func.isRequired,
-};
-
-// TopMovie.propTypes = {
-//   topDescription: PropTypes.object.isRequired,
-//   formatDate: PropTypes.func.isRequired,
-//   formatGenre: PropTypes.func.isRequired,
-// }
-
-// Movies.propTypes = {
-//   movies: PropTypes.array.isRequired,
-//   handleOpen: PropTypes.func.isRequired,
-// }
-
 export default App

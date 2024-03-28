@@ -1,5 +1,3 @@
-
-
 dialog {
     padding: 0;
     display: block;
@@ -9,7 +7,7 @@ dialog {
 
 dialog img {
     margin: 0;
-    background-size: cover;
+    /* background-size: cover; */
     width: 100vw;
     height: 100vh;
     box-shadow: 0 0 250px 150px black inset;
