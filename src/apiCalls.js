@@ -1,6 +1,6 @@
 
 function fetchData(endpoint) {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${endpoint}`)
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/2/${endpoint}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${endpoint}`)
@@ -20,7 +20,7 @@ function fetchSingleMovie(endpoint) {
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${endpoint}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error('This page does not exist')
+                throw new Error('')
             } else {
                 return response.json()
             }

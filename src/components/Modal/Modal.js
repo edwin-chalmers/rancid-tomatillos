@@ -8,20 +8,18 @@ function Modal({ formatDate, formatGenre }) {
     const navigate = useNavigate()
     const [movie, setMovie] = useState({})
     const movieId = useParams().movieId
-    console.log(movieId)
 
     useEffect(() => {
         fetchSingleMovie(movieId)
             .then(data => {
                 if (data) {
-                    console.log('modal movie data', data)
                     setMovie(data.movie)
                 } 
             })
             .catch(error => { //handling 500 error (which is actually a 404 deep down)
-                console.log(error.message)
+                console.log('modal error handling', error.message)
                 const err = error.message
-                navigate("/error", { state: { error: err }, replace: true })
+                navigate("/error", { replace: true })
             })
     }, [])
 
