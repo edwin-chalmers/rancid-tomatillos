@@ -1,5 +1,9 @@
 .top-movie-container {
-    max-width: 100%;
+    display: block;
+    height: 80vh;
+    width: 100%;
+    background: rgb(0, 0, 0); 
+    overflow: hidden;
 }
 
 h1 {
@@ -36,7 +40,7 @@ h2 {
     filter: brightness(40%);
     /* max-height: auto;
     min-width: 100vw; */
-    height: auto;
+    height: 80vh;
     width: 100%; 
 }
 
