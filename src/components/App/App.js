@@ -48,15 +48,15 @@ function App() {
   return (
     <>
       <header className="header">
-        <nav className="Nav-bar">
+        {/* <nav className="Nav-bar">
           <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo icon" />
           <h1 className="nav-h1"><NavLink to='/' className="nav-link">Rancid Tomatillos</NavLink></h1>
-        </nav>
+        </nav> */}
       </header>
       <main className="App">
-        {/* <header>
+        <header>
             <Nav />
-          </header> */}
+          </header>
         <Routes>
           <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatGenre={formatGenre} />} />
           <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
