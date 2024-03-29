@@ -12,7 +12,7 @@ function TopMovie({ topDescription, formatGenre, }) {
                     <div className='top-movie-info'>
                         <h1>{topDescription.title}</h1>
                         <h2>{topDescription.tagline}</h2>
-                        <p>{topDescription.overview}</p>
+                        <p className='top-movie-description'>{topDescription.overview}</p>
                         {/* <p className='data'>{formatDate(topDescription.release_date)}</p> */}
                         <div className='genres-button'>
                             {topDescription.genres && (<p className='data'>{formatGenre(topDescription.genres)}</p>)}

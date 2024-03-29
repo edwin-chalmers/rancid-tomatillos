@@ -3,48 +3,64 @@
   background-color: black;
 }
 
-/* .Nav-bar {
-  min-height: 2vh;
-  padding: 15px;
-} */
+/* Tablet */
+@media screen and (max-width: 768px) {
 
-.Nav-bar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-  min-height: 2vh;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  gap: 16px;
-  margin: 0 auto;
-  padding-right: 10px;
-  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  color: white;
+  .top-movie a{
+    font-size: 12px;
+  }
+
+  .top-movie-description {
+    font-size: small;
+  }
+
+  .top-movie-info h2{
+    font-size: 1em;
+  }
+
+  .top-movie-info h1{
+    font-size: 3em;
+  }
 }
 
-.rancid-tomatillo-logo {
-  height: 30px;
-  width: auto;
-  margin-left: 10px;
+
+/* Larger Phone */
+@media screen and (max-width: 425px) {
+  
+  .top-movie h1{
+    font-size: 2em;
+  }
+
+  .top-movie-description, h2 {
+    display: none;
+  }
+
+  .movies-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .top-movie-poster {
+    display: none;
+  }
+
+  .top-movie-info {
+    width: auto !important;
+  }
+
+  .genres-button {
+    flex-direction: column;
+  }
+
+  .genres-button p {
+    margin-right: 10px
+  }
+
+  .nav-h1 {
+    display: none;
+  }
+
+  .rancid-tomatillo-logo {
+    margin: 10px;
 }
 
-.nav-h1 {
-  font-size: 1.2em;
-  margin-right: auto;
-  margin-bottom: 9px;
-  padding-bottom: 3px;
 }
-
-.nav-link {
-  text-decoration: none;
-  padding: 6px;
-  border-radius: 4px;
-  color: white;
-}
-
-.nav-link.active {
-  border-bottom: 3px solid rgba(115, 171, 32, 0.53);
-}
-

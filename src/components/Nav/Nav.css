@@ -1,4 +1,4 @@
-/* .Nav-bar {
+.Nav-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,8 +6,8 @@
     min-height: 2vh;
     position: absolute;
     z-index: 1;
-    width: 100%;
-    gap: 16px;
+    /* width: 100%; */
+    gap: 10px;
     margin: 0 auto;
     padding-right: 10px;
     background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
@@ -17,7 +17,7 @@
 .rancid-tomatillo-logo {
     height: 30px;
     width: auto;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .nav-h1 {
@@ -36,4 +36,4 @@
 
 .nav-link.active {
     border-bottom: 3px solid rgba(115, 171, 32, 0.53);
-} */
+}
