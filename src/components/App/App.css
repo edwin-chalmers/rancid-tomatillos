@@ -8,3 +8,43 @@
   padding: 15px;
 } */
 
+.Nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  min-height: 2vh;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  gap: 16px;
+  margin: 0 auto;
+  padding-right: 10px;
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  color: white;
+}
+
+.rancid-tomatillo-logo {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.nav-h1 {
+  font-size: 1.2em;
+  margin-right: auto;
+  margin-bottom: 9px;
+  padding-bottom: 3px;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+  color: white;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid rgba(115, 171, 32, 0.53);
+}
+

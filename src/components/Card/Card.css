@@ -8,7 +8,7 @@
 }
 
 .poster {
-  width: 200px; /* Set width to fill the card */
-  height: 300px;
+  width: 90%; /* Set width to fill the card */
+  height: auto;
   border-radius: 10px;
 }

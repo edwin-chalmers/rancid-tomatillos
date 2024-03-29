@@ -5,8 +5,10 @@ import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate, NavLink } from 'react-router-dom'
 import { formatDate, formatGenre } from '../../utils/utils'
+import rancidTomatilloLogo from '../../images/rancid-tomatillo-logo.png';
+
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -44,26 +46,25 @@ function App() {
   }, [navigate]);
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rancid Tomatillos</title>
-      </head>
-      <body>
-        <main className="App">
-          <header>
+    <>
+      <header className="header">
+        <nav className="Nav-bar">
+          <img className="rancid-tomatillo-logo" src={rancidTomatilloLogo} alt="Rancid Tomatillo icon" />
+          <h1 className="nav-h1"><NavLink to='/' className="nav-link">Rancid Tomatillos</NavLink></h1>
+        </nav>
+      </header>
+      <main className="App">
+        {/* <header>
             <Nav />
-          </header>
-          <Routes>
-            <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatGenre={formatGenre} />} />
-            <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
-            <Route path='/error' element={<ErrorPage />} />
-            <Route path='*' element={<ErrorPage error='*' />} />
-          </Routes>
-        </main>
-      </body>
-    </html>
+          </header> */}
+        <Routes>
+          <Route path='/' element={<Home movies={movies} topDescription={topDescription} formatGenre={formatGenre} />} />
+          <Route path='/:movieId' element={<Modal formatDate={formatDate} formatGenre={formatGenre} />} />
+          <Route path='/error' element={<ErrorPage />} />
+          <Route path='*' element={<ErrorPage error='*' />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 

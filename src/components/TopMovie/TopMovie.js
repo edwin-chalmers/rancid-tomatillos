@@ -6,7 +6,7 @@ function TopMovie({ topDescription, formatGenre, }) {
 
     return (
         <div className='overlay'>
-            <figure className='top-movie'>
+            <article className='top-movie'>
                 <img className="top-movie-poster"src={topDescription.poster_path} alt={`${topDescription.title} poster`}></img>
                 <div className='top-movie-info'>
                     <h1>{topDescription.title}</h1>
@@ -18,7 +18,7 @@ function TopMovie({ topDescription, formatGenre, }) {
                         <button><NavLink to={`/${topDescription.id}`}>More Details →</NavLink></button>
                     </div>
                 </div>
-            </figure>
+            </article>
             <img className='top-movie-img' src={topDescription.backdrop_path} alt={`${topDescription.title} backdrop`} width='100%'/>
         </div>
     )
