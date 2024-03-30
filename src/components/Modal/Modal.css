@@ -64,7 +64,7 @@ dialog button:hover {
     text-align: left;
 }
 
-.deep-details div{
+.deep-details div {
     display: flex;
     flex-direction: row;
     border-radius: 15px;
@@ -91,4 +91,36 @@ dialog button:hover {
 
 .movie-details h1 {
     font-size: 3em;
+}
+
+/* Browser min*/
+@media screen and (max-width: 660px) {
+
+    .deep-details {
+        flex-direction: column !important;
+    }
+
+    .deep-details div {
+        margin: 5px;
+        max-width: fit-content;
+    }
+
+}
+
+/* Larger Phone */
+@media screen and (max-width: 450px) {
+
+    .deep-details dd,
+    .deep-details dt {
+        font-size: smaller;
+    }
+
+    .movie-details h1 {
+        font-size: 2em !important;
+    }
+
+    .dialog-contents {
+        overflow: scroll;
+    }
+
 }
