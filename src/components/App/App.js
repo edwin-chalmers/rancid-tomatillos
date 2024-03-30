@@ -13,7 +13,6 @@ function App() {
   const [topDescription, setTopDescription] = useState({})
   const navigate = useNavigate()
 
-
   useEffect(() => {
     fetchData('movies')
       .then(data => {
