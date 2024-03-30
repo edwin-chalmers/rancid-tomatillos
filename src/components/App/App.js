@@ -10,7 +10,14 @@ import { formatDate, formatGenre } from '../../utils/utils'
 
 function App() {
   const [movies, setMovies] = useState([])
-  const [topDescription, setTopDescription] = useState({})
+  const [topDescription, setTopDescription] = useState({
+      title: '',
+      tagline: '',
+      overview: '',
+      release_date: '',
+      genres: [],
+      backdrop_path: '',
+  })
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -20,7 +27,7 @@ function App() {
           const sortedMovies = [...data.movies].sort((a, b) => b.average_rating - a.average_rating)
           const topMovie = sortedMovies[0]
 
-          setMovies(data.movies) // Use the unsorted movies data to set state
+          setMovies(data.movies) 
 
           if (topMovie) {
             return fetchData(`movies/${topMovie.id}`)
