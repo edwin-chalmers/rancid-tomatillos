@@ -50,8 +50,8 @@ function Modal({ formatDate, formatGenre }) {
                             {movie.genres && (<dd className='details-data'>{formatGenre(movie.genres)}</dd>)}
                         </div>
                     </dl>
+                    <button><Link to='/'>⃪ Back to home</Link></button>
                 </div>
-                <button>⃪<Link to='/'>⃪ Back to home</Link></button>
             </div>
         </dialog>
     )
