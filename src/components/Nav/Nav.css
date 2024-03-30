@@ -10,7 +10,7 @@
     margin: 0 auto;
     padding-right: 10px;
     color: white;
-  }
+}
 
 .rancid-tomatillo-logo {
     height: 30px;
@@ -34,4 +34,30 @@
 
 .nav-link.active {
     border-bottom: 3px solid rgba(115, 171, 32, 0.53);
+}
+
+/* Browser min*/
+@media screen and (max-width: 660px) {
+
+    .nav-h1 {
+        display: none;
+    }
+
+    .rancid-tomatillo-logo {
+        margin: 10px;
+    }
+
+}
+
+/* Larger Phone */
+@media screen and (max-width: 450px) {
+
+    .nav-h1 {
+        display: none;
+    }
+
+    .rancid-tomatillo-logo {
+        margin: 10px;
+    }
+
 }

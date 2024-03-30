@@ -16,3 +16,21 @@ h3 {
   margin-left: 7%;
   border-bottom: 3px solid rgba(115, 171, 32, 0.53);
 }
+
+/* Browser min*/
+@media screen and (max-width: 660px) {
+
+  .movies-container {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+}
+
+/* Larger Phone */
+@media screen and (max-width: 450px) {
+
+  .movies-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+}
