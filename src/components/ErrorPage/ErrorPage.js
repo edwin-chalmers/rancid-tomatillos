@@ -1,13 +1,12 @@
 
 import "./ErrorPage.css"
 import rancidTomatilloError from '../../images/rancid-tomatillo.png';
-import PropTypes from 'prop-types'
 
-function ErrorPage({ error }) {
+function ErrorPage() {
     return (
         <div className="error-505">
             <img className="rancid-tomatillo-error" src={rancidTomatilloError} alt="Rancid Tomatillo broken icon" />
-            <h1>{error || 'There was a glitch in the matrix..'}</h1>
+            <h1>There was a glitch in the matrix..</h1>
             <div className='error-message'>
                 <p> We now know about this issue and are working to fix it.</p>
                 <p>In the meantime, here is what you can do:</p>
@@ -20,9 +19,5 @@ function ErrorPage({ error }) {
         </div>
     )
 }
-
-// ErrorPage.propTypes = {
-//     error: PropTypes.string.isRequired
-// }
 
 export default ErrorPage

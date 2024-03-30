@@ -5,17 +5,13 @@ import ErrorPage from '../ErrorPage/ErrorPage'
 import Nav from '../Nav/Nav'
 import { useState, useEffect } from 'react'
 import { fetchData } from '../../apiCalls'
-import { Route, Routes, useNavigate, NavLink } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import { formatDate, formatGenre } from '../../utils/utils'
-import rancidTomatilloLogo from '../../images/rancid-tomatillo-logo.png';
-
 
 function App() {
   const [movies, setMovies] = useState([])
   const [topDescription, setTopDescription] = useState({})
-  // const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
-
 
   useEffect(() => {
     fetchData('movies')
@@ -29,7 +25,6 @@ function App() {
           if (topMovie) {
             return fetchData(`movies/${topMovie.id}`)
           } else {
-            // setErrorMessage("Can't fetch the movie :(") 
             navigate("/error", { replace: true })
           }
 
@@ -40,7 +35,6 @@ function App() {
       })
       .catch(error => {
         navigate("/error", { replace: true })
-        // setErrorMessage('404')
         console.log(error.message)
       });
   }, [navigate]);

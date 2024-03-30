@@ -1,8 +1,8 @@
 .top-movie-container {
     display: block;
     height: 80%;
-    width: 100%;
-    background: rgb(0, 0, 0); 
+    /* width: 100vw; */
+    background: rgb(253, 0, 0); 
     overflow: hidden;
 }
 
@@ -26,7 +26,7 @@ h2 {
 .top-movie {
     position: absolute;
     display: flex;
-    align-items: end; 
+    align-items: flex-end; 
     justify-content: center; 
     color: rgba(255, 255, 255, 0.857);
     width: 100%;
