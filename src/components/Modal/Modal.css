@@ -1,5 +1,6 @@
 dialog {
     padding: 0;
+    background-color: black;
     display: block;
     color: rgb(255, 255, 255, .9) !important;
     border: none;
@@ -15,7 +16,7 @@ dialog img {
 
 .background-overlay {
     z-index: 0;
-    filter: brightness(30%);
+    filter: brightness(40%);
 }
 
 .dialog-contents {
