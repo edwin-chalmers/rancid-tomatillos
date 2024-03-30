@@ -2,10 +2,6 @@
 **Overview:**
 Rancid Tomatillos is a web application designed to view a collection of movies. This project was designed as our first React.js application to get experience using the React library as well as the React Router library.
 
-## Available Scripts
-
-In the project directory, you can run:
-
 ### `installation`
 - `fork` this repo and clone it to your local machine
 - `cd` into the repo
@@ -13,7 +9,7 @@ In the project directory, you can run:
 - `npm start` to be automatically redirected to the site
 
 ### Technologies used
-
+React.js | React Router |JavaScript | HTML | CSS
 
 ### `npm run build`
 
