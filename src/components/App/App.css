@@ -11,7 +11,7 @@
   }
 
   .top-movie-description {
-    font-size: small;
+    font-size: smaller;
   }
 
   .top-movie-info h2{
@@ -19,10 +19,34 @@
   }
 
   .top-movie-info h1{
-    font-size: 3em;
+    font-size: 2.5em;
   }
 }
 
+/* Browser min*/
+@media screen and (max-width: 600px) {
+
+  .top-movie-description {
+    display: none;
+  }
+
+  .nav-h1 {
+    display: none;
+  }
+
+  .rancid-tomatillo-logo {
+    margin: 10px;
+  }
+
+  .movies-container {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .genres-button {
+    flex-direction: column;
+  }
+
+}
 
 /* Larger Phone */
 @media screen and (max-width: 425px) {
