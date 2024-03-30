@@ -7,10 +7,10 @@ dialog {
 
 dialog img {
     margin: 0;
-    /* background-size: cover; */
+    background-size: cover;
     width: 100vw;
     height: 100vh;
-    box-shadow: 0 0 250px 150px black inset;
+    box-shadow: 0 0 250px 50px rgba(0, 0, 0, 0.618) inset;
 }
 
 .background-overlay {
@@ -25,6 +25,8 @@ dialog img {
     bottom: 0;
     z-index: 1;
     position: absolute;
+    display: flex !important;
+    align-items: center;
 }
 
 .dialog-contents button {
@@ -33,10 +35,9 @@ dialog img {
     background-color: transparent;
     color: rgb(255, 255, 255, .95);
     float: inline-start;
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 10px;
-    margin-left: 130px;
+    padding: 0 10px 0 20px;
+    margin: 15px auto 0 0;
+    margin-left: auto;
     width: max-content;
 }
 
@@ -52,23 +53,15 @@ dialog button:hover {
 
 .movie-details {
     display: block;
-    max-width: 40%;
-    min-height: 60%;
+    max-width: 520px;
+    min-height: fit-content;
     padding: 50px;
     margin-left: 5%;
 }
 
 .overview {
-    padding-bottom: 10%;
-    padding-top: 3%;
-}
-
-.deep-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 3% 0 3%;
+    text-align: left;
 }
 
 .deep-details div{
@@ -79,6 +72,8 @@ dialog button:hover {
     background-color: rgba(139, 206, 38, 0.53);
     padding: 2px 5px;
     font-size: smaller;
+    max-width: fit-content;
+    margin-top: 8px;
 }
 
 .deep-details dd {
@@ -92,4 +87,8 @@ dialog button:hover {
 
 .details-data {
     font-weight: 600;
+}
+
+.movie-details h1 {
+    font-size: 3em;
 }
