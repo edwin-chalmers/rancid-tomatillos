@@ -57,7 +57,7 @@ function App() {
           <Route path='*' element={<ErrorPage error='*' />} />
         </Routes>
       </main>
-    </>
+      </>
   );
 }
 
