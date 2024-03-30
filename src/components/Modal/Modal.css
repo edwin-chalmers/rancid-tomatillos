@@ -28,6 +28,7 @@ dialog img {
     position: absolute;
     display: flex !important;
     align-items: center;
+    z-index: 0;
 }
 
 .dialog-contents button {
