@@ -8,8 +8,19 @@ Rancid Tomatillos is a web application designed to view a collection of movies. 
 - `npm install` dependencies
 - `npm start` to be automatically redirected to the site
 
-### Technologies used
+## Technologies used
 React.js | React Router |JavaScript | HTML | CSS
+
+## Testing
+
+### Videos
+https://github.com/edwin-chalmers/rancid-tomatillos/assets/144856487/653233c7-bff0-4c59-8e53-fc9747192732
+
+https://github.com/edwin-chalmers/rancid-tomatillos/assets/144856487/158806c6-38ee-4c13-86a8-28e9898f1692
+
+## Collaberators 
+- [Asher Spurr's GitHub](https://github.com/AsherSpurr)
+- [Edwin Chalmers GitHub](https://github.com/edwin-chalmers)
 
 ### `npm run build`
 
