@@ -16,7 +16,7 @@ function Modal({ formatDate, formatGenre }) {
                     setMovie(data.movie)
                 }
             })
-            .catch(error => { //handling 500 error (which is actually a 404 deep down)
+            .catch(error => { 
                 console.log(error)
                 navigate("/error", { replace: true })
             })

@@ -83,11 +83,6 @@ describe('Landing page', () => {
   it('Should load the Top Movie Poster', () => {
     cy.get("header")
     .contains("h1", "Rancid Tomatillos")
-    // .get('figure.top-movie').within(() => {
-    //   cy.get('h1').contains('Black Atom') 
-    //   cy.get('h2').contains('The world needed a hero. It got Black Adam.')
-    //   cy.get('p').eq(1).contains('Action - Fantasy - Science Fiction')
-    // });
   })
   
   it('Should load individual movie cards ', () => {

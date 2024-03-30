@@ -1,14 +1,14 @@
 .card {
     box-sizing: border-box;
     padding: 0;
-    display: flex; /* Use flexbox to center the poster image if needed */
+    display: flex; 
     justify-content: space-evenly;
-    align-items: center; /* Center vertically */
+    align-items: center; 
     margin: 0 0 40px;
 }
 
 .poster {
-  width: 90%; /* Set width to fill the card */
+  width: 90%; 
   height: auto;
   border-radius: 10px;
 }
